@@ -1,0 +1,33 @@
+
+spring:
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+
+  datasource:
+    url: tcp:jdbc:h2:tcp://localhost:9092/mem:restaurant
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+
+  jackson:
+    visibility: any
+
+  cache:
+    cache-names: users
+    caffeine:
+      spec: maximumSize=1,expireAfterAccess=60s
+
+logging:
+  level: debug
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
