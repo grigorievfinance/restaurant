@@ -8,6 +8,8 @@ import com.grigorievfinance.resraurantserver.util.JsonUtil;
 import java.util.Collections;
 import java.util.Date;
 
+import static com.grigorievfinance.resraurantserver.MealTestData.adminMeals;
+import static com.grigorievfinance.resraurantserver.MealTestData.meals;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserTestData {
@@ -23,7 +25,7 @@ public class UserTestData {
     public static final int ADMIN_ID = 2;
     public static final int NOT_FOUND = 100;
 
-    public static final User user = new User(USER_ID, "User", "user@yandex.ru", "password", 2005, Role.USER);
+    public static final User user = new User(USER_ID, "User", "user@gmail.com", "password", 2005, Role.USER);
     public static final User admin = new User(ADMIN_ID, "Admin", "admin@gmail.com", "admin", 1900, Role.ADMIN, Role.USER);
 
     public static User getNew() {
@@ -31,7 +33,8 @@ public class UserTestData {
     }
 
     static {
-
+        user.setMeals(meals);
+        admin.setMeals(adminMeals);
     }
 
     public static User getUpdated() {

@@ -3,8 +3,10 @@ package com.grigorievfinance.resraurantserver.config;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+import com.grigorievfinance.resraurantserver.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.h2.tools.Server;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +29,8 @@ public class AppConfig {
         return new Hibernate5Module();
     }
 
+    @Autowired
     public void storeObjectMapper(ObjectMapper objectMapper) {
-
+        JsonUtil.setMapper(objectMapper);
     }
 }
